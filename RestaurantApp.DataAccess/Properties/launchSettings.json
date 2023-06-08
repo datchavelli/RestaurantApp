@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "RestaurantApp.DataAccess": {
+      "commandName": "Project"
+    }
+  }
+}

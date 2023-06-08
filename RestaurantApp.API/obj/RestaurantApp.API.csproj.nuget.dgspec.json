@@ -1,0 +1,370 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {}
+  },
+  "projects": {
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
+        "projectName": "RestaurantApp.API",
+        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
+              },
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
+              },
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              },
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Bugsnag.AspNet.Core": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.11.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
+        "projectName": "RestaurantApp.Application",
+        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+        "projectName": "RestaurantApp.DataAccess",
+        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "projectName": "RestaurantApp.Domain",
+        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
+        "projectName": "RestaurantApp.Implementation",
+        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
+              },
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
+              },
+              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
