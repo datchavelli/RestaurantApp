@@ -11,9 +11,10 @@ namespace RestaurantApp.Application.UseCases.DTO
         public int Id { get; set; }
         public string Waiter { get; set; }
         public string TakenAt { get; set; } 
-        public float TotalAmount { get; set; }
+        public int TotalAmount { get; set; }
         public string Status { get; set; }
 
-        public ReservationDto Reservation { get; set; }
+        public int TableNumber { get; set; }
+        public int ReservationId { get; set; }
     }
 }

@@ -1,5 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestaurantApp.Application.UseCaseHandling;
+using RestaurantApp.Application.UseCases.Commands;
+using RestaurantApp.Application.UseCases.DTO;
+using RestaurantApp.Application.UseCases.Queries;
+using RestaurantApp.Application.UseCases.Queries.Searches;
 using RestaurantApp.DataAccess;
 using System.Collections.Generic;
 
@@ -9,6 +14,7 @@ namespace RestaurantApp.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrderController : ControllerBase
     {
         private RestaurantAppContext _context;
@@ -24,24 +30,24 @@ namespace RestaurantApp.API.Controllers
 
         // GET: api/<OrderController>
         [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<OrderController>/5
-        [HttpGet("{id}")]
-        public string Get([FromBody] OrderSearch search,
+        [Authorize]
+        public IActionResult Get([FromBody] OrderSearch search,
                           [FromServices] ISearchOrderQuery query,
                           [FromServices] IQueryHandler handler)
         {
-            return "value";
+            return Ok(handler.HandleQuery(query, search));
         }
+
+        
 
         // POST api/<OrderController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Authorize]
+        public IActionResult Post([FromBody] CreateOrderDto dto,
+                                  [FromServices] ICreateOrderCommand command)
         {
+            _commandHandler.HandleCommand(command, dto);
+            return StatusCode(201);
         }
 
         // PUT api/<OrderController>/5

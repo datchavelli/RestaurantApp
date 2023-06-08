@@ -28,6 +28,26 @@ namespace RestaurantApp.Implementation.UseCases.Queries
         {
             IQueryable<Order> query = Context.Orders;
 
+            if(!string.IsNullOrEmpty(search.Waiter))
+            {
+                query = query.Where(x => x.Waiter.UserName == search.Waiter);
+            }
+
+            if(!string.IsNullOrEmpty(search.OrderTime))
+            {
+                query = query.Where(x => x.OrderTime.ToString() == search.OrderTime);
+            }
+
+            if(search.TableNumber != null)
+            {
+                query = query.Where(x => x.Table.TableNumber == search.TableNumber);
+            }    
+
+            if(!string.IsNullOrEmpty(search.OrderStatus))
+            {
+                query = query.Where(x => x.OrderStatus.ToString() == search.OrderStatus);
+            }
+
             return query.ToPagedResponse<Order, OrderDto>(search, x => new OrderDto
             {
                 Waiter = x.Waiter.UserName,
@@ -35,15 +55,8 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 TakenAt = x.CreatedAt.ToString(),
                 Status = x.OrderStatus.ToString(),
                 TotalAmount = x.TotalAmount,
-                Reservation = new ReservationDto()
-                {
-                    Id = x.Id,
-                    ReservationDate = x.Reservation.ReservationDate.ToString(),
-                    ReservedBy = x.Reservation.Receptionist.UserName,
-                    GuestCount = x.Reservation.GuestCount,
-                    CustomerName = x.Reservation.CustomerName,
-                    StartTime = x.Reservation.StartTime.ToString()
-                }
+                TableNumber = x.Table.TableNumber,
+                ReservationId = x.Reservation.Id
 
             });
         }
