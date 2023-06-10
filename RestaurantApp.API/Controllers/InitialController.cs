@@ -47,21 +47,38 @@ namespace RestaurantApp.API.Controllers
                 }
             };
 
-            var roleUseCases = new List<RoleUseCase>()
+
+            var masterRole = new List<RoleUseCase>();
+
+            for (int i = 1; i < 30; i++)
             {
-                new RoleUseCase()
-                {
-                    Role = roles.ElementAt(0),
-                    UseCaseId = 1,
-                },
-                
-                new RoleUseCase()
-                {
-                    Role = roles.ElementAt(0),
-                    UseCaseId = 2
-                }
-                //Treba dodati sve UseCaseOve I korisnike
-            };
+                masterRole.Add(new RoleUseCase { Role = roles.ElementAt(2), UseCaseId = i });
+            }
+
+            int[] waiterUseCases = { 2,3,7,8,9,10,11,13,15,16,19,21,26,28,30};
+            int[] receptionistUseCases = { 2,3,5,6,7,11,13,19,21,25,26,27,28};
+
+
+            var waiterRoles = new List<RoleUseCase>();
+            for (int i = 0; i < waiterUseCases.Length; i++)
+            {
+                waiterRoles.Add(new RoleUseCase { Role = roles.ElementAt(0), UseCaseId = waiterUseCases[i] });
+            }
+
+            var receptionistRoles = new List<RoleUseCase>();
+            for (int i = 0; i < receptionistUseCases.Length; i++)
+            {
+                receptionistRoles.Add(new RoleUseCase { Role = roles.ElementAt(1), UseCaseId = receptionistUseCases[i] });
+            }
+
+
+            var roleUseCase = new List<RoleUseCase>();
+
+
+            roleUseCase.AddRange(masterRole);
+            roleUseCase.AddRange(waiterRoles);
+            roleUseCase.AddRange(receptionistRoles);
+
 
             var users = new List<User>()
             {
@@ -188,7 +205,7 @@ namespace RestaurantApp.API.Controllers
 
 
             _context.AddRange(roles);
-            _context.AddRange(roleUseCases);
+            _context.AddRange(roleUseCase);
             _context.AddRange(users);
             _context.AddRange(categories);
             _context.AddRange(menuItems);
