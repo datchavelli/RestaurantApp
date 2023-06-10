@@ -1,4 +1,5 @@
-﻿using RestaurantApp.Application.UseCases.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.Application.UseCases.Queries;
 using RestaurantApp.Application.UseCases.Queries.Searches;
 using RestaurantApp.DataAccess;
@@ -26,7 +27,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public PagedResponse<ReservationDto> Execute(ReservationSearch search)
         {
-            IQueryable<Reservation> query = Context.Reservations;
+            IQueryable<Reservation> query = Context.Reservations.Include(x => x.Orders).ThenInclude(x => x.Waiter);
 
             if(!string.IsNullOrEmpty(search.CustomerName))
             {

@@ -1,6 +1,9 @@
-﻿using RestaurantApp.Application.UseCases.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantApp.Application.Exceptions;
+using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.Application.UseCases.Queries;
 using RestaurantApp.DataAccess;
+using RestaurantApp.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +26,17 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public CategoryDto Execute(int search)
         {
-            var query = Context.Categories.AsQueryable();
+            var query = Context.Categories.Include(x => x.ChildCategories)
+                                          .Include(x => x.MenuItems).AsQueryable();
 
             if (search > 0)
             {
-                query = query.Where(x => x.Id == search);
+                var check = query.Any(x => x.Id == search);
+
+                if (!check)
+                {
+                    throw new EntityNotFoundException(search,nameof(CategoryDto));
+                }
             }
             else
             {

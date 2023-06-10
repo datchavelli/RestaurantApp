@@ -1,4 +1,5 @@
-﻿using RestaurantApp.Application.UseCases;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantApp.Application.UseCases;
 using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.Application.UseCases.Queries;
 using RestaurantApp.Application.UseCases.Queries.Searches;
@@ -30,7 +31,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public PagedResponse<MenuItemDto> Execute(SearchMenuItems search)
         {
-            IQueryable<MenuItem> query = Context.MenuItems;
+            IQueryable<MenuItem> query = Context.MenuItems.Include(x => x.Category);
 
             if(!string.IsNullOrEmpty(search.MenuItemName))
             {

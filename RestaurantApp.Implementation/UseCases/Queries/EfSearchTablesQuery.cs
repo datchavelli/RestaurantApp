@@ -29,7 +29,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
         public IEnumerable<TableDto> Execute(TableSearch search)
         {
             var query = _context.Tables
-                                .Include(x => x.Orders)
+                                .Include(x => x.Orders).ThenInclude(x => x.Waiter)
                                 .Where(x => x.IsActive && x.DeletedAt == null);
 
             if(search.TableNumber.HasValue)

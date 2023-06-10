@@ -1,4 +1,6 @@
-﻿using RestaurantApp.Application.UseCases.DTO;
+﻿using Microsoft.EntityFrameworkCore;
+using RestaurantApp.Application.Exceptions;
+using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.Application.UseCases.Queries;
 using RestaurantApp.DataAccess;
 using System;
@@ -23,18 +25,26 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public OrderDto Execute(int search)
         {
-            var query = Context.Orders.AsQueryable();
+            var query = Context.Orders.Include(x => x.Items).ThenInclude(x => x.MenuItem)
+                                      .Include(x => x.Reservation)
+                                      .Include(x => x.Table)
+                                      .Include(x => x.Waiter);
 
             if (search > 0)
             {
-                query = query.Where(x => x.Id == search);
+                var check = query.Any(x => x.Id == search);
+
+                if(!check)
+                {
+                    throw new EntityNotFoundException(search, nameof(OrderDto));
+                }
             }
             else
             {
                 throw new Exception("Id not valid");
             }
 
-            var result = query.FirstOrDefault();
+            var result = query.FirstOrDefault(x => x.Id == search);
 
             OrderDto order = new OrderDto()
             {
