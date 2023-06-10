@@ -55,19 +55,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                     TakenAt = o.OrderTime.ToString(),
                     Status = o.OrderStatus.ToString(),
                     TotalAmount = o.TotalAmount,
-                    Reservation = new ReservationDto
-                    {
-                        
-                        CustomerName = o.Reservation.CustomerName,
-                        GuestCount = o.Reservation.GuestCount,
-                        ReservedBy = o.Reservation.Receptionist.UserName,
-                        ReservationDate = o.Reservation.ReservationDate.ToString(),
-                        Status = o.Reservation.ReservationStatus.ToString(),
-                        StartTime = o.Reservation.StartTime.ToString(),
-                        EndTime = o.Reservation.EndTime.ToString()
-                    
-                    }
-                    
+                    ReservationId = o.ReservationId
                 })
             }).ToList();
 

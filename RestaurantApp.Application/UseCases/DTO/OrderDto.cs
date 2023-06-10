@@ -11,10 +11,11 @@ namespace RestaurantApp.Application.UseCases.DTO
         public int Id { get; set; }
         public string Waiter { get; set; }
         public string TakenAt { get; set; } 
-        public int TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         public string Status { get; set; }
 
         public int TableNumber { get; set; }
-        public int ReservationId { get; set; }
+        public int? ReservationId { get; set; }
+        public IEnumerable<OrderItemDto> OrderItems { get; set; }
     }
 }

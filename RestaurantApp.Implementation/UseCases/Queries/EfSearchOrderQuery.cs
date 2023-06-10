@@ -52,12 +52,18 @@ namespace RestaurantApp.Implementation.UseCases.Queries
             {
                 Waiter = x.Waiter.UserName,
                 Id = x.Id,
-                TakenAt = x.CreatedAt.ToString(),
+                TakenAt = x.OrderTime.ToString(),
                 Status = x.OrderStatus.ToString(),
                 TotalAmount = x.TotalAmount,
                 TableNumber = x.Table.TableNumber,
-                ReservationId = x.Reservation.Id
-
+                ReservationId = x.Reservation.Id,
+                OrderItems = x.Items.Select(oi => new OrderItemDto
+                {
+                    OrderId = oi.OrderId,
+                    Quantity = oi.Quatity,
+                    MenuItem = oi.MenuItem.Name,
+                    Price = oi.MenuItem.Price
+                })
             });
         }
     }

@@ -13,7 +13,7 @@ namespace RestaurantApp.Domain.Entities
         public int? ReservationId { get; set; }
         public int? WaiterId { get; set; }
         public DateTime OrderTime { get; set; }
-        public int TotalAmount { get; set; }
+        public decimal TotalAmount { get; set; }
         public OrderStatus OrderStatus { get; set; }
 
         public virtual ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>();

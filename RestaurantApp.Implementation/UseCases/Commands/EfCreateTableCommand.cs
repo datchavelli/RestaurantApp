@@ -38,6 +38,13 @@ namespace RestaurantApp.Implementation.UseCases.Commands
         {
             _validator.ValidateAndThrow(request);
 
+            var tableCheck = Context.Tables.FirstOrDefault(x => x.TableNumber == request.TableNumber);
+
+            if(tableCheck == null)
+            {
+                throw new Exception("Table with that number already exists");
+            }
+
             Table table = new Table()
             {
                 TableNumber = request.TableNumber,

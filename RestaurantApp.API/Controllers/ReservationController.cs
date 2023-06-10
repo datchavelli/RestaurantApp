@@ -49,16 +49,33 @@ namespace RestaurantApp.API.Controllers
             return StatusCode(201);
         }
 
-        // PUT api/<ReservationController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult Get(int id,
+                                 [FromServices] IGetReservationsQuery query,
+                                 [FromServices] IQueryHandler handler)
         {
+            return Ok(handler.HandleQuery(query, id));
+        }
+
+        // PUT api/<ReservationController>/5
+        [HttpPut]
+        [Authorize]
+        public IActionResult Put([FromBody] UpdateReservationDto dto,
+                                [FromServices] IUpdateReservationCommand command)
+        {
+            _commandHandler.HandleCommand(command, dto);
+            return StatusCode(201);
         }
 
         // DELETE api/<ReservationController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Authorize]
+        public IActionResult Delete(int id,
+                                    [FromServices] IDeleteReservationCommand command)
         {
+            _commandHandler.HandleCommand(command, id);
+            return StatusCode(204);
         }
     }
 }

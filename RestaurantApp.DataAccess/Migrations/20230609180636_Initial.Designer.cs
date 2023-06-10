@@ -10,8 +10,8 @@ using RestaurantApp.DataAccess;
 namespace RestaurantApp.DataAccess.Migrations
 {
     [DbContext(typeof(RestaurantAppContext))]
-    [Migration("20230605135543_LogEntriesAndRoleUseCases")]
-    partial class LogEntriesAndRoleUseCases
+    [Migration("20230609180636_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,7 +50,7 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
-                    b.Property<int>("ParentCategoryId")
+                    b.Property<int?>("ParentCategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedAt")
@@ -145,8 +145,8 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -195,8 +195,8 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<int>("TableId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalAmount")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -204,7 +204,7 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WaiterId")
+                    b.Property<int?>("WaiterId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -246,8 +246,8 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<int>("Quatity")
                         .HasColumnType("int");
 
-                    b.Property<float>("Subtotal")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -350,6 +350,11 @@ namespace RestaurantApp.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
+
+                    b.Property<bool>("IsDefault")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -483,8 +488,7 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.HasOne("RestaurantApp.Domain.Entities.Category", "ParentCategory")
                         .WithMany("ChildCategories")
                         .HasForeignKey("ParentCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("ParentCategory");
                 });
@@ -516,8 +520,7 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.HasOne("RestaurantApp.Domain.Entities.User", "Waiter")
                         .WithMany("Orders")
                         .HasForeignKey("WaiterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Reservation");
 

@@ -50,16 +50,41 @@ namespace RestaurantApp.API.Controllers
             return StatusCode(201);
         }
 
-        // PUT api/<OrderController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult Get(int id,
+                                [FromServices] IGetOrderQuery query,
+                                [FromServices] IQueryHandler handler)
         {
+            return Ok(handler.HandleQuery(query, id));
+        }
+
+        [HttpPut]
+        [Authorize]
+        public IActionResult Put([FromBody] UpdateOrderDto dto,
+                                [FromServices] IUpdateOrderCommand command)
+        {
+            _commandHandler.HandleCommand(command, dto);
+            return StatusCode(201);
+        }
+
+        // Complete Order
+        [HttpPatch]
+        [Authorize]
+        public IActionResult Patch([FromBody] CompleteOrderDto request, [FromServices] ICompleteOrderCommand command)
+        {
+            _commandHandler.HandleCommand(command, request);
+            return StatusCode(201);
         }
 
         // DELETE api/<OrderController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        [Authorize]
+        public IActionResult Delete(int id,
+                                    [FromServices] IDeleteOrderCommand command)
         {
+            _commandHandler.HandleCommand(command, id);
+            return StatusCode(204);
         }
     }
 }

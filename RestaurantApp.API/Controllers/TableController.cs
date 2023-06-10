@@ -31,7 +31,7 @@ namespace RestaurantApp.API.Controllers
         // GET: api/<TableController>
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromQuery] TableSearch search, 
+        public IActionResult Get([FromQuery] TableSearch search,
                                  [FromServices] ISearchTablesQuery query,
                                  [FromServices] IQueryHandler handler)
         {
@@ -39,15 +39,41 @@ namespace RestaurantApp.API.Controllers
             return Ok(handler.HandleQuery(query, search));
         }
 
+        [HttpGet("{id}")]
+        [Authorize]
+        public IActionResult Get(int id,
+                                  [FromServices] IGetTableQuery query,
+                                  [FromServices] IQueryHandler handler)
+        {
+            return Ok(handler.HandleQuery(query, id));
+        }
 
+        
        [HttpPost]
        [Authorize]
-
        public IActionResult Post([FromBody] CreateTableDto dto,
                         [FromServices] ICreateTableCommand command)
         {
             _commandHandler.HandleCommand(command, dto);
             return StatusCode(201);
+        }
+
+        [HttpPut]
+        [Authorize]
+        public IActionResult Put([FromBody] UpdateTableDto dto,
+                                [FromServices] IUpdateTableCommand command)
+        {
+            _commandHandler.HandleCommand(command, dto);
+            return StatusCode(201);
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize]
+        public IActionResult Delete(int id,
+                                    [FromServices] IDeleteTableCommand command)
+        {
+            _commandHandler.HandleCommand(command, id);
+            return StatusCode(204);
         }
     }
 }

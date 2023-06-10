@@ -13,30 +13,37 @@ using System.Threading.Tasks;
 
 namespace RestaurantApp.Implementation.UseCases.Commands
 {
-    public class EfCreateOrderCommand : EfUseCase, ICreateOrderCommand
+    public class EfCompleteOrderCommand : EfUseCase, ICompleteOrderCommand
     {
         private IApplicationActor _actor;
-        private CreateOrderValidator _validator;
-        public EfCreateOrderCommand(RestaurantAppContext context, IApplicationActor actor, CreateOrderValidator validator) : base(context)
+        private CompleteOrderValidator _validator;
+
+        public EfCompleteOrderCommand(RestaurantAppContext context, IApplicationActor actor, CompleteOrderValidator validator) : base(context)
         {
             _actor = actor;
             _validator = validator;
         }
 
-        public int Id => 8;
+        public int Id => 9;
 
-        public string Name => "Creating a new Order";
+        public string Name => "Complete Order";
 
-        public string Description => "UseCase for creating a new order that can be done by Admin and a Waiter.";
+        public string Description => "Complete order does update for the status of the order and sums up the totalAmmount";
 
-        public void Execute(CreateOrderDto request)
+        public void Execute(CompleteOrderDto request)
         {
             _validator.ValidateAndThrow(request);
 
-
             var orderStatus = OrderStatus.Pending;
 
-            switch(request.OrderStatus)
+            var orderId = Context.Orders.Where(x => x.Id == request.OrderId).Select(x => x.Id).FirstOrDefault();
+
+            if(orderId == null)
+            {
+                throw new Exception("Invalid OrderId");
+            }
+
+            switch (request.OrderStatus)
             {
                 case "Completed":
                     orderStatus = OrderStatus.Completed;
@@ -48,20 +55,16 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                     orderStatus = OrderStatus.Hold;
                     break;
                 default:
-                    orderStatus= OrderStatus.Pending;
+                    orderStatus = OrderStatus.Pending;
                     break;
             }
 
-            Order order = new Order()
-            {
-                WaiterId = _actor.Id,
-                Table = Context.Tables.FirstOrDefault(t => t.TableNumber == request.TableNumber),
-                OrderStatus = orderStatus,
-                TotalAmount = Context.OrderItems.Where(x => x.Order.Table.TableNumber == request.TableNumber).Sum(s => s.Subtotal),
-                OrderTime = DateTime.UtcNow
-            };
+            var order = Context.Orders.FirstOrDefault(x => x.Id == request.OrderId);
 
-            Context.Add(order);
+            order.OrderStatus = orderStatus;
+            order.UpdatedAt = DateTime.UtcNow;
+            order.UpdatedBy = _actor.Username;
+
             Context.SaveChanges();
         }
     }

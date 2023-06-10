@@ -143,8 +143,8 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<float>("Price")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -193,8 +193,8 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<int>("TableId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TotalAmount")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -244,8 +244,8 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<int>("Quatity")
                         .HasColumnType("int");
 
-                    b.Property<float>("Subtotal")
-                        .HasColumnType("real");
+                    b.Property<decimal>("Subtotal")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");

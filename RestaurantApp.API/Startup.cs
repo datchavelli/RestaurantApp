@@ -112,14 +112,37 @@ namespace RestaurantApp.API
                 };
             });
 
-
+            //Queries and Commands
             services.AddTransient<IGetUsersQuery, EfGetUsersQuery>();
             services.AddTransient<ISearchTablesQuery, EfSearchTablesQuery>();
             services.AddTransient<ISearchReservationsQuery ,EfSearchReservationsQuery>();
             services.AddTransient<ICreateReservationCommand, EfCreateReservationCommand>();
             services.AddTransient<ISearchOrderQuery, EfSearchOrderQuery>();
-             
+            services.AddTransient<ICreateOrderCommand, EfNewOrderCommand>();
+            services.AddTransient<ICompleteOrderCommand, EfCompleteOrderCommand>();
+            services.AddTransient<IServiceOrderCommand, EfCreateServiceOrderCommand>();
+            services.AddTransient<ICreateMenuItemCommand, EfCreateMenuItemCommand>();
+            services.AddTransient<ISearchMenuItemsQuery, EfSearchMenuItemsQuery>();
+            services.AddTransient<IGetMenuItemQuery, EfGetMenuItemQuery>();
+            services.AddTransient<IUpdateMenuItemCommand, EfUpdateMenuItemCommand>();
+            services.AddTransient<IDeleteMenuItemCommand, EfDeleteMenuItemCommand>();
+            services.AddTransient<IGetTableQuery,EfGetTableQuery>();
+            services.AddTransient<IDeleteTableCommand, EfDeleteTableCommand>();
+            services.AddTransient<IUpdateTableCommand, EfUpdateTableCommand>();
+            services.AddTransient<ISearchCategoryQuery, EfSearchCategoryQuery>();
+            services.AddTransient<ICreateCategoryCommand, EfCreateCategoryCommand>();
+            services.AddTransient<IGetCategoryQuery, EfGetCategoryQuery>();
+            services.AddTransient<IDeleteCategoryCommand, EfDeleteCategoryCommand>();
+            services.AddTransient<IUpdateCategoryCommand, EfUpdateCategoryCommand>();
+            services.AddTransient<ISearchLogQuery, EfSearchLogQuery>();
+            services.AddTransient<IDeleteReservationCommand, EfDeleteReservationCommand>();
+            services.AddTransient<IGetReservationsQuery, EfGetReservationQuery>();
+            services.AddTransient<IDeleteOrderCommand, EfDeleteOrderCommand>();
+            services.AddTransient<IUpdateReservationCommand, EfUpdateReservationCommand>();
+            services.AddTransient<IGetOrderQuery, EfGetOrderQuery>();
             services.AddTransient<ICreateTableCommand, EfCreateTableCommand>();
+            services.AddTransient<IUpdateOrderCommand, EfUpdateOrderCommand>();
+
             services.AddTransient<IRegisterUserCommand>(x =>
             {
                 var ctx = x.GetService<RestaurantAppContext>();
@@ -134,9 +157,20 @@ namespace RestaurantApp.API
 
 
             services.AddTransient<ICommandHandler, CommandHandler>();
+
+            //Validator Registracija
             services.AddTransient<RegisterUserValidator>();
             services.AddTransient<CreateTableValidator>();
             services.AddTransient<CreateReservationValidator>();
+            services.AddTransient<NewOrderValidator>();
+            services.AddTransient<CompleteOrderValidator>();
+            services.AddTransient<CreateServiceOrderValidator>();
+            services.AddTransient<CreateMenuItemValidator>();
+            services.AddTransient<UpdateMenuItemValidator>();
+            services.AddTransient<UpdateTableValidator>();
+            services.AddTransient<CreateCategoryValidator>();
+            services.AddTransient<UpdateReservationValidator>();
+            services.AddTransient<UpdateOrderValidator>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

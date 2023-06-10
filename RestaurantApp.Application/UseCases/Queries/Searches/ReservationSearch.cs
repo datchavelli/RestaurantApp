@@ -8,6 +8,7 @@ namespace RestaurantApp.Application.UseCases.Queries.Searches
 {
     public class ReservationSearch : PagedSearch
     {
+        public int? Id { get; set; }
         public string CustomerName { get; set; }
         public DateTime? ReservationTime { get; set; }
         public int? GuestCount { get; set; }

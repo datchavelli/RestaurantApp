@@ -53,7 +53,14 @@ namespace RestaurantApp.API.Controllers
                 {
                     Role = roles.ElementAt(0),
                     UseCaseId = 1,
+                },
+                
+                new RoleUseCase()
+                {
+                    Role = roles.ElementAt(0),
+                    UseCaseId = 2
                 }
+                //Treba dodati sve UseCaseOve I korisnike
             };
 
             var users = new List<User>()

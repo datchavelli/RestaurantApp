@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantApp.Implementation.Validators
 {
-    public class CreateOrderValidator : AbstractValidator<CreateOrderDto>
+    public class NewOrderValidator : AbstractValidator<CreateOrderDto>
     {
-        public CreateOrderValidator()
+        public NewOrderValidator()
         {
             RuleFor(x => x.TableNumber).NotNull()
                                        .WithMessage("Table number must be chosen");
