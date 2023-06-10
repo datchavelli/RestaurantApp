@@ -5,7 +5,7 @@ U ovom projektu napravljena je aplikacija koja se koristi u Restoranu za usluziv
 Postoje 3 uloge:
 - Administrator 
 - Konobar (Waiter)
-- Recepcioner (Receptionist) 
+- Recepcioner (Receptionist)  
 
 Database Screenshot:
 ![image](https://github.com/datchavelli/RestaurantApp/assets/40506719/5d74986c-64f9-4cf2-b891-9fcca3be30c0)
