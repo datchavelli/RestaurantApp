@@ -50,7 +50,7 @@ namespace RestaurantApp.API.Controllers
 
             var masterRole = new List<RoleUseCase>();
 
-            for (int i = 1; i < 30; i++)
+            for (int i = 1; i <= 30; i++)
             {
                 masterRole.Add(new RoleUseCase { Role = roles.ElementAt(2), UseCaseId = i });
             }
