@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using RestaurantApp.Application;
+using RestaurantApp.Application.Exceptions;
 using RestaurantApp.Application.UseCases.Commands;
 using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.DataAccess;
@@ -40,15 +41,16 @@ namespace RestaurantApp.Implementation.UseCases.Commands
 
             var tableCheck = Context.Tables.FirstOrDefault(x => x.TableNumber == request.TableNumber);
 
-            if(tableCheck == null)
+            if(tableCheck != null)
             {
-                throw new Exception("Table with that number already exists");
+                throw new EntityAlreadyExistsException(tableCheck.Id, "Category");
             }
 
             Table table = new Table()
             {
                 TableNumber = request.TableNumber,
-                Capacity = request.Capacity
+                Capacity = request.Capacity,
+                Status = TableStatus.Available
             };
 
             Context.Add(table);

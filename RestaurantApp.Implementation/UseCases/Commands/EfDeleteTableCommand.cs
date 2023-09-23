@@ -38,10 +38,11 @@ namespace RestaurantApp.Implementation.UseCases.Commands
             }
 
 
-            table.IsActive = false;
+            /*table.IsActive = false;
             table.DeletedAt = DateTime.UtcNow;
-            table.DeletedBy = _actor.Username;
+            table.DeletedBy = _actor.Username;*/
 
+            Context.Remove(table);
             Context.SaveChanges();
         }
     }

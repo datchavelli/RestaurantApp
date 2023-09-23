@@ -33,29 +33,49 @@ namespace RestaurantApp.Implementation.UseCases.Commands
         {
             _validator.ValidateAndThrow(request);
 
-            List<OrderItem> orderItems = new List<OrderItem>();
 
-            if(request.MenuItems.Count() != request.MenuQuantity.Count())
+
+            var order = Context.Orders.FirstOrDefault(x => x.Table.TableNumber == request.TableNumber && x.OrderStatus != OrderStatus.Completed);
+
+            if(request.TableNumber == 0)
             {
-                throw new Exception("MenuItems and MenuQuantity are not the same lenght");
+                throw new Exception("Table Number cannot be 0");
             }
 
-            var order = Context.Orders.FirstOrDefault(x => x.Table.TableNumber == request.TableNumber);
-
-            for(var i=0; i<request.MenuItems.Count(); i++)
+            if(request.MenuItem == 0)
             {
-                var menuItemPrice = Context.MenuItems.FirstOrDefault(x => x.Id == request.MenuItems[i]).Price;
+                throw new Exception("Menu Item cannot be 0");
+            }
 
-                orderItems.Add(new OrderItem
+            if(request.MenuQuantity == 0)
+            {
+                throw new Exception("Cannot select 0 items");
+            }
+
+            if(order.Items.Any(x => x.MenuItemId == request.MenuItem))
+            {
+                order.Items.FirstOrDefault(x => x.MenuItemId == request.MenuItem).Quantity += request.MenuQuantity;
+                order.Items.FirstOrDefault(x => x.MenuItemId == request.MenuItem).Subtotal += request.MenuQuantity;
+            }
+            else
+            {
+                var menuItemPrice = Context.MenuItems.FirstOrDefault(x => x.Id == request.MenuItem).Price;
+
+                OrderItem orderItem = new OrderItem
                 {
                     Order = order,
-                    Quatity = request.MenuQuantity[i],
-                    MenuItemId = request.MenuItems[i],
-                    Subtotal = request.MenuQuantity[i] * menuItemPrice
-                });              
-            }
+                    Quantity = request.MenuQuantity,
+                    MenuItemId = request.MenuItem,
+                    Subtotal = request.MenuQuantity * menuItemPrice,
+                    IsActive = true
+                };
 
-            Context.AddRange(orderItems);
+                order.TotalAmount = order.TotalAmount + (request.MenuQuantity * menuItemPrice);
+
+                Context.Add(orderItem);
+            }
+            
+               
             Context.SaveChanges();
 
             

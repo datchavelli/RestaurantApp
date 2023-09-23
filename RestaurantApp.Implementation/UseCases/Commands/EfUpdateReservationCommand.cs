@@ -55,7 +55,7 @@ namespace RestaurantApp.Implementation.UseCases.Commands
 
             if (!string.IsNullOrEmpty(request.ReservationStatus))
             {
-                var resrvationStatus = ReservationStatus.Hold;
+                var resrvationStatus = ReservationStatus.Confirmed;
 
                 switch(request.ReservationStatus)
                 {
@@ -78,9 +78,29 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                 throw new Exception("EndTime cannot be before today");
             }
 
-            if(request.StartTime < DateTime.UtcNow)
+            if (request.ReservationDate < DateTime.UtcNow)
+            {
+                throw new Exception("Date cannot be before today");
+            }
+
+            if (request.EndTime != null)
+            {
+                reservation.EndTime = request.EndTime;
+            }
+
+            if (request.ReservationDate != null)
+            {
+                reservation.ReservationDate = DateTime.Parse(request.ReservationDate.ToString());
+            }
+
+            if (request.StartTime < DateTime.UtcNow)
             {
                 throw new Exception("StartTime cannot be before today");
+            }
+
+            if (request.StartTime != null)
+            {
+                reservation.StartTime = request.StartTime;
             }
 
 

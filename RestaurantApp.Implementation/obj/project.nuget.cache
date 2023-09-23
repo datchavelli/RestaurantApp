@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/UB7xSQWNYwyUyKTAP6/wmXIVi9MCyK9lBWLL02W3ZM0wiIYgR09sbfIrNOtyauZ39exj81NcIKOV0ITXwdSqA==",
+  "dgSpecHash": "qm+N+d3UwCxbV04HuM4AfghzUBoq8jgnjLS9qLT3uLQFSOA8tFGv7UBL0mVvAqQyD76FfJptJgZaWinzcHdTHA==",
   "success": true,
-  "projectFilePath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
+  "projectFilePath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512",

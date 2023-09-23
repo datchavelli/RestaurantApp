@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestaurantApp.Application.UseCaseHandling;
 using RestaurantApp.Application.UseCases.Commands;
 using RestaurantApp.Application.UseCases.DTO;

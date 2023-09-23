@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {}
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {}
   },
   "projects": {
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
         "projectName": "RestaurantApp.Domain",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -37,10 +37,11 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                 throw new Exception("Already deleted");
             }
 
-            menuItem.IsActive = false;
+            /*menuItem.IsActive = false;
             menuItem.DeletedAt = DateTime.UtcNow;
-            menuItem.DeletedBy = _actor.Username;
+            menuItem.DeletedBy = _actor.Username;*/
 
+            Context.MenuItems.Remove(menuItem);
             Context.SaveChanges();
 
         }

@@ -26,8 +26,8 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public TableDto Execute(int search)
         {
-            var query = Context.Tables.Include(x => x.Orders).ThenInclude(x => x.Waiter)
-                                      .Include(x => x.Orders).ThenInclude(x => x.Table)
+            var query = Context.Tables.Include(x => x.Reservation).ThenInclude(x => x.Receptionist)
+                                      .Include(x => x.Orders).ThenInclude(x => x.Waiter)
                                       .Include(x => x.Orders).ThenInclude(x => x.Items).ThenInclude(x => x.MenuItem).AsQueryable();
 
             if (search > 0)
@@ -49,31 +49,31 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
 
 
-            TableDto menuItem = new TableDto()
+            TableDto table = new TableDto()
             {
                 Id = result.Id,
                 TableNumber = result.TableNumber,
                 Capacity = result.Capacity,
                 Status = result.Status.ToString(),
+                Receptionist = result.Reservation.Receptionist.UserName,
                 Orders = result.Orders.Select(o => new OrderDto
                 {
                     Id = o.Id,
                     Waiter = o.Waiter.UserName,
                     TakenAt = o.OrderTime.ToString(),
                     Status = o.OrderStatus.ToString(),
-                    ReservationId = o.ReservationId,
                     TotalAmount = o.TotalAmount,
                     OrderItems = o.Items.Select(i => new OrderItemDto
                     {
                         MenuItem = i.MenuItem.Name,
                         Price = i.MenuItem.Price,
-                        Quantity = i.Quatity
+                        Quantity = i.Quantity
                     })
                 })
 
             };
 
-            return menuItem;
+            return table;
         }
     }
 }

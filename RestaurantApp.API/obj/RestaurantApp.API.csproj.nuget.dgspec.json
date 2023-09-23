@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {}
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {}
   },
   "projects": {
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
         "projectName": "RestaurantApp.API",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,17 +28,17 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
               },
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
               },
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
               },
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj"
               }
             }
           }
@@ -110,14 +110,14 @@
         }
       }
     },
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
         "projectName": "RestaurantApp.Application",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -164,14 +164,14 @@
         }
       }
     },
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
         "projectName": "RestaurantApp.DataAccess",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -188,8 +188,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
               }
             }
           }
@@ -238,14 +238,14 @@
         }
       }
     },
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
         "projectName": "RestaurantApp.Domain",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -292,14 +292,14 @@
         }
       }
     },
-    "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
+    "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
+        "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
         "projectName": "RestaurantApp.Implementation",
-        "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
+        "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\RestaurantApp.Implementation.csproj",
         "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Implementation\\obj\\",
+        "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Implementation\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -316,14 +316,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Application\\RestaurantApp.Application.csproj"
               },
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj"
               },
-              "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
-                "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+              "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+                "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
               }
             }
           }

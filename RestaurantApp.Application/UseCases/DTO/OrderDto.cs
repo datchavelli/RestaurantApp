@@ -15,7 +15,6 @@ namespace RestaurantApp.Application.UseCases.DTO
         public string Status { get; set; }
 
         public int TableNumber { get; set; }
-        public int? ReservationId { get; set; }
         public IEnumerable<OrderItemDto> OrderItems { get; set; }
     }
 }

@@ -17,6 +17,6 @@ namespace RestaurantApp.Application.UseCases.DTO
         public string ReservedBy { get; set; }
         public string Status { get; set; }  
 
-        public IEnumerable<OrderDto> Orders { get; set; }
+        public IEnumerable<TableDto> Table { get; set; }
     }
 }

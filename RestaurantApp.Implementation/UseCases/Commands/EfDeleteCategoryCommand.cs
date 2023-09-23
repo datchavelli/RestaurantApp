@@ -44,9 +44,11 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                 throw new Exception("Unable to delete. This category has Child Categories.");
             }
 
-            category.IsActive = false;
+            /*category.IsActive = false;
             category.DeletedAt = DateTime.UtcNow;
-            category.DeletedBy = _actor.Username;
+            category.DeletedBy = _actor.Username;*/
+
+            Context.Remove(category);
 
             Context.SaveChanges();
         }

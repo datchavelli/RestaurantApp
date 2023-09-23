@@ -50,6 +50,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
             return query.ToPagedResponse<MenuItem, MenuItemDto>(search, x => new MenuItemDto
             {
+                Id = x.Id,
                 CategoryId = x.CategoryId,
                 CategoryName = x.Category.CategoryName,
                 Name = x.Name,

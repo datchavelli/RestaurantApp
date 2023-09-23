@@ -9,6 +9,7 @@ namespace RestaurantApp.Application.UseCases.DTO
         public int TableNumber { get; set; }
         public int Capacity { get; set; }
         public string Status { get; set; }
+        public string Receptionist { get; set; }
 
         public IEnumerable<OrderDto> Orders { get; set; } = new List<OrderDto>();
     }

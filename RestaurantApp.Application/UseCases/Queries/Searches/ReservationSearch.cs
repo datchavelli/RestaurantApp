@@ -10,6 +10,7 @@ namespace RestaurantApp.Application.UseCases.Queries.Searches
     {
         public int? Id { get; set; }
         public string CustomerName { get; set; }
+        public int? TableNumber { get; set; }
         public DateTime? ReservationTime { get; set; }
         public int? GuestCount { get; set; }
         public string ReservedBy { get; set; }

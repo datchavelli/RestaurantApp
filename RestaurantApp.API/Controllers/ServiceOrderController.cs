@@ -34,5 +34,14 @@ namespace RestaurantApp.API.Controllers
             return StatusCode(201);
         }
 
+        [HttpDelete]
+        [Authorize]
+        public IActionResult Delete([FromBody] RemoveOrderItemDto dto,
+                                    [FromServices] IRemoveOrderCommand command)
+        {
+            _commandHandler.HandleCommand(command, dto);
+            return StatusCode(204);
+        }
+
     }
 }

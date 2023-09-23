@@ -24,10 +24,11 @@ namespace RestaurantApp.DataAccess.Configurations
                    .HasForeignKey(x => x.ReceptionistId)
                    .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasMany(x => x.Orders)
+            builder.HasMany(x => x.Tables)
                    .WithOne(x => x.Reservation)
                    .HasForeignKey(x => x.ReservationId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.Cascade);
+
         }
     }
 }

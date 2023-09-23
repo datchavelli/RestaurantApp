@@ -32,6 +32,7 @@ namespace RestaurantApp.Implementation.UseCases.Commands
         public void Execute(CreateOrderDto request)
         {
             _validator.ValidateAndThrow(request);
+            var table = Context.Tables.Where(x => x.TableNumber == request.TableNumber).FirstOrDefault();
 
 
             var orderStatus = OrderStatus.Pending;
@@ -45,8 +46,11 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                 Table = Context.Tables.FirstOrDefault(t => t.TableNumber == request.TableNumber),
                 OrderStatus = orderStatus,
                 TotalAmount = 0,
-                OrderTime = DateTime.UtcNow
+                OrderTime = DateTime.UtcNow,
+                IsActive = true
             };
+
+            table.Status = TableStatus.Occupied;
 
             Context.Add(order);
             Context.SaveChanges();

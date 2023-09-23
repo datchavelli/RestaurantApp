@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dITp1OZMRu3fJirtoFi/FbU5OaMEpggaLipcwqAEZxEjQELrTM878cFCQgASyMPnExpvb8BFdLMAjsi1ZW8LeA==",
+  "dgSpecHash": "sHBUAoN5gg5Pyx27ZcuYphVFJ9qQIaO4+OX1C4wVVswss87C4X4LxJEJ923o6G6np7LdYralU/Bf7xiy6vWxyQ==",
   "success": true,
-  "projectFilePath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
+  "projectFilePath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

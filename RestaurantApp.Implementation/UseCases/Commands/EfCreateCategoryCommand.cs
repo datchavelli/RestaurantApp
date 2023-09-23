@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using RestaurantApp.Application;
+using RestaurantApp.Application.Exceptions;
 using RestaurantApp.Application.UseCases.Commands;
 using RestaurantApp.Application.UseCases.DTO;
 using RestaurantApp.DataAccess;
@@ -38,20 +39,24 @@ namespace RestaurantApp.Implementation.UseCases.Commands
 
             if (categoryExists != null)
             {
-                throw new Exception("Category already exitst");
+                throw new EntityAlreadyExistsException(categoryExists.Id,"Category");
             }
-
-            if (request.ParentCategoryId != null && parentExists == null)
-            {
-                throw new Exception("ParentId doesn't exist.");
-            }
-
 
             Category category = new Category
             {
-                CategoryName = request.CategoryName,
-                ParentCategoryId = request.ParentCategoryId
+                CategoryName = request.CategoryName
             };
+
+            if (parentExists == null)
+            {
+                category = new Category
+                {
+                    CategoryName = request.CategoryName,
+                    ParentCategoryId = request.ParentCategoryId
+                };
+            }
+
+            
 
             Context.Categories.Add(category);
             Context.SaveChanges();

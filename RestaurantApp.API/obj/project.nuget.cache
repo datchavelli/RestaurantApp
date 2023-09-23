@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bYXyAg318CTkFO6rgHFaSEs5T5sFUXGnniTZMJkvDrcfyRby4QEzolzhvtAsOVg7zRnKOdQUBb38StuGwwqHXg==",
+  "dgSpecHash": "LTBm3jjbR++eW3tn/ManuvRJ+0bj6sx0yw7sBxD72pyjdkYLPTqIJqkUxwwxp1JjonX2dszRKNVSVvgmI43tpQ==",
   "success": true,
-  "projectFilePath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
+  "projectFilePath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.API\\RestaurantApp.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\bugsnag\\3.1.0\\bugsnag.3.1.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JiG0+YGJqFsmDYt2OSaGqaePOJcWqXlqE1fBZvNWXDEuNW5Lgbj6jfByAFEiTADKDVBiGGbvZVUa15+OrTvrXA==",
+  "dgSpecHash": "xnVFBYim2Bm1GytI86C5s9wNAkbb1gdMilcV2Pd5YSGsmF43jXQVTe28+v0O5xu71KmcslnLKJWczPAazzKApQ==",
   "success": true,
-  "projectFilePath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+  "projectFilePath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

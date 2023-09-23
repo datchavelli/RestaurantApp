@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantApp.Application.UseCases.DTO
 {
-    public class CreateServiceOrderDto
+    public class CloseTableDto
     {
-        public int MenuItem { get; set; }
-        public int MenuQuantity { get; set; }
         public int TableNumber { get; set; }
-
     }
 }

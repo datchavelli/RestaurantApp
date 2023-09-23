@@ -50,6 +50,7 @@ namespace RestaurantApp.API.Jwt
 
             int id = user.Id;
             string username = user.UserName;
+            string roleName = user.Role.Name;
             List<int> useCases = user.Role.RoleUseCases.Select(x => x.UseCaseId).ToList();
 
             //Header.Payload.Signature
@@ -67,6 +68,7 @@ namespace RestaurantApp.API.Jwt
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString(), ClaimValueTypes.Integer64, _issuer),
                 new Claim("Id", id.ToString()),
                 new Claim("Username", username),
+                new Claim("Rolename", roleName),
                 new Claim("UseCases", JsonConvert.SerializeObject(useCases))
             };
 

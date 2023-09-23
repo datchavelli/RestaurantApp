@@ -28,7 +28,6 @@ namespace RestaurantApp.Implementation.UseCases.Queries
         public PagedResponse<OrderDto> Execute(OrderSearch search)
         {
             IQueryable<Order> query = Context.Orders.Include(x => x.Table)
-                                                    .Include(x => x.Reservation)
                                                     .Include(x => x.Items).ThenInclude(x => x.MenuItem)
                                                     .Include(x => x.Waiter);
 
@@ -52,6 +51,8 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 query = query.Where(x => x.OrderStatus.ToString() == search.OrderStatus);
             }
 
+            query = query.Where(x => x.IsActive);
+
             return query.ToPagedResponse<Order, OrderDto>(search, x => new OrderDto
             {
                 Waiter = x.Waiter.UserName,
@@ -60,11 +61,10 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 Status = x.OrderStatus.ToString(),
                 TotalAmount = x.TotalAmount,
                 TableNumber = x.Table.TableNumber,
-                ReservationId = x.Reservation.Id,
                 OrderItems = x.Items.Select(oi => new OrderItemDto
                 {
                     OrderId = oi.OrderId,
-                    Quantity = oi.Quatity,
+                    Quantity = oi.Quantity,
                     MenuItem = oi.MenuItem.Name,
                     Price = oi.MenuItem.Price
                 })

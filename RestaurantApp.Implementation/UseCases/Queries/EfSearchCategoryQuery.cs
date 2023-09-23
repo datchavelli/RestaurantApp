@@ -54,6 +54,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                }),
                MenuItems = x.MenuItems.Select(mi => new MenuItemDto
                {
+                   Id = mi.Id,
                    Name = mi.Name,
                    Description = mi.Description,
                    Price = mi.Price,

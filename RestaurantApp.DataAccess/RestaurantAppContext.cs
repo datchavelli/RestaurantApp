@@ -26,6 +26,7 @@ namespace RestaurantApp.DataAccess
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(RestaurantAppContext).Assembly);
             modelBuilder.Entity<RoleUseCase>().HasKey(x => new { x.RoleId, x.UseCaseId });
             modelBuilder.Entity<Role>().Property(x => x.IsDefault).HasDefaultValue(false);
+            modelBuilder.Entity<Role>().Property(x => x.IsActive).HasDefaultValue(true);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -30,6 +30,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
         {
             var query = _context.Tables
                                 .Include(x => x.Orders).ThenInclude(x => x.Waiter)
+                                .Include(x => x.Reservation).ThenInclude(x => x.Receptionist)
                                 .Where(x => x.IsActive && x.DeletedAt == null);
 
             if(search.TableNumber.HasValue)
@@ -48,6 +49,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 TableNumber = x.TableNumber,
                 Status = x.Status.ToString(),
                 Capacity = x.Capacity,
+                Receptionist = x.Reservation.Receptionist.UserName,
                 Orders = x.Orders.Select(o => new OrderDto
                 {
                     Id = o.Id,
@@ -55,7 +57,6 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                     TakenAt = o.OrderTime.ToString(),
                     Status = o.OrderStatus.ToString(),
                     TotalAmount = o.TotalAmount,
-                    ReservationId = o.ReservationId
                 })
             }).ToList();
 

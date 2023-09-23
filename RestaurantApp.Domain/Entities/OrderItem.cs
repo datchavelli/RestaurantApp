@@ -11,7 +11,7 @@ namespace RestaurantApp.Domain.Entities
     {
         public int OrderId { get; set; }
         public int MenuItemId { get; set; }
-        public int Quatity { get; set; }
+        public int Quantity { get; set; }
         public decimal Subtotal { get; set; }
 
         public virtual MenuItem MenuItem { get; set; }

@@ -50,12 +50,12 @@ namespace RestaurantApp.API.Controllers
 
             var masterRole = new List<RoleUseCase>();
 
-            for (int i = 1; i <= 30; i++)
+            for (int i = 1; i <= 32; i++)
             {
                 masterRole.Add(new RoleUseCase { Role = roles.ElementAt(2), UseCaseId = i });
             }
 
-            int[] waiterUseCases = { 2,3,7,8,9,10,11,13,15,16,19,21,26,28,30};
+            int[] waiterUseCases = { 2,3,7,8,9,10,11,13,15,16,19,21,26,28,30,31,32};
             int[] receptionistUseCases = { 2,3,5,6,7,11,13,19,21,25,26,27,28};
 
 
@@ -143,6 +143,18 @@ namespace RestaurantApp.API.Controllers
                 },
             };
 
+            var reservations = new List<Reservation>()
+            {
+                new Reservation()
+                {
+                    CustomerName = "Branko",
+                    ReservationDate = DateTime.UtcNow,
+                    StartTime = DateTime.UtcNow.AddDays(3),
+                    GuestCount = 4,
+                    Receptionist = users.ElementAt(1)
+                }
+            };
+
             var tables = new List<Table>()
             {
                 new Table()
@@ -161,28 +173,18 @@ namespace RestaurantApp.API.Controllers
                 {
                     TableNumber = 3,
                     Status = TableStatus.Reserved,
-                    Capacity = 4
+                    Capacity = 4,
+                    Reservation = reservations.ElementAt(0),
                 }
             };
 
-            var reservations = new List<Reservation>()
-            {
-                new Reservation()
-                {
-                    CustomerName = "Branko",
-                    ReservationDate = DateTime.UtcNow,
-                    StartTime = DateTime.UtcNow.AddDays(3),
-                    GuestCount = 4,
-                    Receptionist = users.ElementAt(1)
-                }
-            };
+           
 
 
             var orders = new List<Order>()
             {
                 new Order()
                 {
-                    Reservation = reservations.ElementAt(0),
                     Table = tables.ElementAt(2),
                     OrderStatus = OrderStatus.Pending,
                     OrderTime = DateTime.UtcNow,
@@ -197,7 +199,7 @@ namespace RestaurantApp.API.Controllers
                 {
                     Order = orders.ElementAt(0),
                     MenuItem = menuItems.ElementAt(0),
-                    Quatity = 2,
+                    Quantity = 2,
                     Subtotal = 700
                     
                 }

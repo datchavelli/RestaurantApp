@@ -36,17 +36,23 @@ namespace RestaurantApp.Implementation.UseCases.Commands
 
 
             //Format Datuma : 2023-07-09T17:30:00.000
+            var user = Context.Users.FirstOrDefault(x => x.UserName == _actor.Username);
+
+            var table = Context.Tables.FirstOrDefault(x => x.TableNumber == request.TableNumber);
 
             Reservation reservation = new Reservation()
             {
                 ReceptionistId = _actor.Id,
                 CustomerName = request.CustomerName,
                 ReservationDate = DateTime.UtcNow,
+                Receptionist = user,
                 StartTime = DateTime.Parse(request.ReservationStart),
                 ReservationStatus = ReservationStatus.Confirmed,
                 GuestCount = request.GuestCount
-
             };
+
+            table.Reservation = reservation;
+            table.Status = TableStatus.Reserved;
 
             Context.Add(reservation);
             Context.SaveChanges();

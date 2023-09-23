@@ -17,6 +17,6 @@ namespace RestaurantApp.Domain.Entities
         public ReservationStatus ReservationStatus { get; set; }
 
         public virtual User Receptionist { get; set; }
-        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
+        public virtual ICollection<Table> Tables { get; set; } = new HashSet<Table>();
     }
 }

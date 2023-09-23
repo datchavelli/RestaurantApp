@@ -25,7 +25,7 @@ namespace RestaurantApp.API.Controllers
 
         // GET: api/<LogController>
         [HttpGet]
-        public IActionResult Get([FromBody] SearchLog search,
+        public IActionResult Get([FromQuery] SearchLog search,
                                  [FromServices] ISearchLogQuery query,
                                  [FromServices] IQueryHandler handler)
         {

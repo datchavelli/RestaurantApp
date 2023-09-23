@@ -142,6 +142,8 @@ namespace RestaurantApp.API
             services.AddTransient<IGetOrderQuery, EfGetOrderQuery>();
             services.AddTransient<ICreateTableCommand, EfCreateTableCommand>();
             services.AddTransient<IUpdateOrderCommand, EfUpdateOrderCommand>();
+            services.AddTransient<ICloseTableCommand, EfCloseTableCommand>();
+            services.AddTransient<IRemoveOrderCommand, EfRemoveOrderCommand>();
 
             services.AddTransient<IRegisterUserCommand>(x =>
             {
@@ -203,6 +205,13 @@ namespace RestaurantApp.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RestaurantApp.API v1"));
             }
+
+            app.UseCors(options =>
+            {
+                options.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            });
 
             app.UseHttpsRedirection();
 

@@ -76,27 +76,6 @@ namespace RestaurantApp.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Tables",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TableNumber = table.Column<int>(type: "int", nullable: false),
-                    Capacity = table.Column<int>(type: "int", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DeletedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Tables", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "MenuItems",
                 columns: table => new
                 {
@@ -201,13 +180,40 @@ namespace RestaurantApp.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tables",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TableNumber = table.Column<int>(type: "int", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: false),
+                    Status = table.Column<int>(type: "int", nullable: false),
+                    ReservationId = table.Column<int>(type: "int", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    DeletedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeletedBy = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tables", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tables_Reservations_ReservationId",
+                        column: x => x.ReservationId,
+                        principalTable: "Reservations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TableId = table.Column<int>(type: "int", nullable: false),
-                    ReservationId = table.Column<int>(type: "int", nullable: true),
                     WaiterId = table.Column<int>(type: "int", nullable: true),
                     OrderTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TotalAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -222,12 +228,6 @@ namespace RestaurantApp.DataAccess.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Orders_Reservations_ReservationId",
-                        column: x => x.ReservationId,
-                        principalTable: "Reservations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Orders_Tables_TableId",
                         column: x => x.TableId,
@@ -250,7 +250,7 @@ namespace RestaurantApp.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     MenuItemId = table.Column<int>(type: "int", nullable: false),
-                    Quatity = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     Subtotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -302,11 +302,6 @@ namespace RestaurantApp.DataAccess.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_ReservationId",
-                table: "Orders",
-                column: "ReservationId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Orders_TableId",
                 table: "Orders",
                 column: "TableId");
@@ -320,6 +315,11 @@ namespace RestaurantApp.DataAccess.Migrations
                 name: "IX_Reservations_ReceptionistId",
                 table: "Reservations",
                 column: "ReceptionistId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tables_ReservationId",
+                table: "Tables",
+                column: "ReservationId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
@@ -354,10 +354,10 @@ namespace RestaurantApp.DataAccess.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Reservations");
+                name: "Tables");
 
             migrationBuilder.DropTable(
-                name: "Tables");
+                name: "Reservations");
 
             migrationBuilder.DropTable(
                 name: "Users");

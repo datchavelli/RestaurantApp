@@ -5818,11 +5818,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+      "projectUniqueName": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
       "projectName": "RestaurantApp.DataAccess",
-      "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
+      "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\RestaurantApp.DataAccess.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.DataAccess\\obj\\",
+      "outputPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5839,8 +5839,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
-              "projectPath": "D:\\ctaraba\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
+            "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj": {
+              "projectPath": "D:\\ctaraba\\Diplomski\\RestaurantApp\\RestaurantApp.Domain\\RestaurantApp.Domain.csproj"
             }
           }
         }

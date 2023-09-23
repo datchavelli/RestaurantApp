@@ -10,3 +10,15 @@ D:\ctaraba\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantAp
 D:\ctaraba\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\refint\RestaurantApp.Application.dll
 D:\ctaraba\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.pdb
 D:\ctaraba\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\ref\RestaurantApp.Application.dll
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\bin\Debug\net5.0\RestaurantApp.Application.deps.json
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\bin\Debug\net5.0\RestaurantApp.Application.dll
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\bin\Debug\net5.0\RestaurantApp.Application.pdb
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.csproj.AssemblyReference.cache
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.AssemblyInfoInputs.cache
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.AssemblyInfo.cs
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.csproj.CoreCompileInputs.cache
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.dll
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\refint\RestaurantApp.Application.dll
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\RestaurantApp.Application.pdb
+D:\ctaraba\Diplomski\RestaurantApp\RestaurantApp.Application\obj\Debug\net5.0\ref\RestaurantApp.Application.dll

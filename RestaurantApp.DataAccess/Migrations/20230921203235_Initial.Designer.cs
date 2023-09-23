@@ -10,7 +10,7 @@ using RestaurantApp.DataAccess;
 namespace RestaurantApp.DataAccess.Migrations
 {
     [DbContext(typeof(RestaurantAppContext))]
-    [Migration("20230609180636_Initial")]
+    [Migration("20230921203235_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -189,9 +189,6 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<DateTime>("OrderTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("ReservationId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TableId")
                         .HasColumnType("int");
 
@@ -208,8 +205,6 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ReservationId");
 
                     b.HasIndex("TableId");
 
@@ -243,7 +238,7 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Quatity")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Subtotal")
@@ -413,6 +408,9 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(true);
 
+                    b.Property<int?>("ReservationId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -427,6 +425,8 @@ namespace RestaurantApp.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ReservationId");
 
                     b.ToTable("Tables");
                 });
@@ -506,11 +506,6 @@ namespace RestaurantApp.DataAccess.Migrations
 
             modelBuilder.Entity("RestaurantApp.Domain.Entities.Order", b =>
                 {
-                    b.HasOne("RestaurantApp.Domain.Entities.Reservation", "Reservation")
-                        .WithMany("Orders")
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
                     b.HasOne("RestaurantApp.Domain.Entities.Table", "Table")
                         .WithMany("Orders")
                         .HasForeignKey("TableId")
@@ -521,8 +516,6 @@ namespace RestaurantApp.DataAccess.Migrations
                         .WithMany("Orders")
                         .HasForeignKey("WaiterId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Reservation");
 
                     b.Navigation("Table");
 
@@ -570,6 +563,16 @@ namespace RestaurantApp.DataAccess.Migrations
                     b.Navigation("Role");
                 });
 
+            modelBuilder.Entity("RestaurantApp.Domain.Entities.Table", b =>
+                {
+                    b.HasOne("RestaurantApp.Domain.Entities.Reservation", "Reservation")
+                        .WithMany("Tables")
+                        .HasForeignKey("ReservationId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Reservation");
+                });
+
             modelBuilder.Entity("RestaurantApp.Domain.Entities.User", b =>
                 {
                     b.HasOne("RestaurantApp.Domain.Entities.Role", "Role")
@@ -600,7 +603,7 @@ namespace RestaurantApp.DataAccess.Migrations
 
             modelBuilder.Entity("RestaurantApp.Domain.Entities.Reservation", b =>
                 {
-                    b.Navigation("Orders");
+                    b.Navigation("Tables");
                 });
 
             modelBuilder.Entity("RestaurantApp.Domain.Entities.Role", b =>

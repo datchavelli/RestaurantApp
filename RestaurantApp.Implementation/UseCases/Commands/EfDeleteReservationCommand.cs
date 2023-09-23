@@ -26,6 +26,7 @@ namespace RestaurantApp.Implementation.UseCases.Commands
         public void Execute(int request)
         {
             var reservation = Context.Reservations.Find(request);
+            var table = Context.Tables.FirstOrDefault(t => t.ReservationId == request);
 
             if (reservation == null )
             {
@@ -37,15 +38,20 @@ namespace RestaurantApp.Implementation.UseCases.Commands
                 throw new Exception("Not found");
             }
 
-            if(reservation.ReservationStatus.ToString() != "Completed")
+            if(reservation.ReservationStatus.ToString() != "Confirmed")
             {
                 throw new Exception("Reservation is not completed!");
             }
 
-           
+
             reservation.IsActive = false;
             reservation.DeletedAt = DateTime.UtcNow;
             reservation.DeletedBy = _actor.Username;
+            table.Status = Domain.Entities.TableStatus.Available;
+            table.ReservationId = null;
+
+
+            /*Context.Remove(reservation);*/
 
             Context.SaveChanges();
         }

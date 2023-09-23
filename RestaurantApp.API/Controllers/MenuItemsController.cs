@@ -31,7 +31,7 @@ namespace RestaurantApp.API.Controllers
         // GET: api/<MenuItemsController>
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromBody] SearchMenuItems search,
+        public IActionResult Get([FromQuery] SearchMenuItems search,
                                  [FromServices] ISearchMenuItemsQuery query,
                                  [FromServices] IQueryHandler handler)
         {

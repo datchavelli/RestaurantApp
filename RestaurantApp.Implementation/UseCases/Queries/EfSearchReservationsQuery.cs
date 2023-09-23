@@ -27,7 +27,7 @@ namespace RestaurantApp.Implementation.UseCases.Queries
 
         public PagedResponse<ReservationDto> Execute(ReservationSearch search)
         {
-            IQueryable<Reservation> query = Context.Reservations.Include(x => x.Orders).ThenInclude(x => x.Waiter);
+            IQueryable<Reservation> query = Context.Reservations.Include(x => x.Tables).ThenInclude(x => x.Orders).ThenInclude(x => x.Waiter);
 
             if(!string.IsNullOrEmpty(search.CustomerName))
             {
@@ -54,6 +54,11 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 query = query.Where(x => x.ReservationStatus.ToString() == search.Status);
             }
 
+            if(search.TableNumber != null)
+            {
+                query = query.Where(x => x.Tables.Any(t => t.TableNumber == search.TableNumber));
+            }
+
             return query.ToPagedResponse<Reservation, ReservationDto>(search, x => new ReservationDto
             {
                 Id = x.Id,
@@ -62,13 +67,19 @@ namespace RestaurantApp.Implementation.UseCases.Queries
                 GuestCount = x.GuestCount,
                 ReservationDate = x.ReservationDate.ToString(),
                 ReservedBy = x.Receptionist.UserName,
-                Orders = x.Orders.Select(o => new OrderDto()
+                Table = x.Tables.Select(t => new TableDto
                 {
-                    Id = o.Id,
-                    Waiter = o.Waiter.UserName,
-                    Status = o.OrderStatus.ToString(),
-                    TakenAt = o.OrderTime.ToString(),
-                    TotalAmount = o.TotalAmount
+                    TableNumber = t.TableNumber,
+                    Status = t.Status.ToString(),
+                    Capacity = t.Capacity,
+                    Orders = t.Orders.Select(o => new OrderDto
+                    {
+                        Id = o.Id,
+                        Status = o.OrderStatus.ToString(),
+                        TotalAmount = o.TotalAmount,
+                        TakenAt = o.OrderTime.ToString(),
+                        Waiter = o.Waiter.UserName
+                    })
                 })
             });
 

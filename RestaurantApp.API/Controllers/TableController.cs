@@ -67,6 +67,14 @@ namespace RestaurantApp.API.Controllers
             return StatusCode(201);
         }
 
+        [HttpPatch]
+        [Authorize]
+        public IActionResult Patch([FromBody] CloseTableDto request, [FromServices] ICloseTableCommand command)
+        {
+            _commandHandler.HandleCommand(command, request);
+            return StatusCode(201);
+        }
+
         [HttpDelete("{id}")]
         [Authorize]
         public IActionResult Delete(int id,

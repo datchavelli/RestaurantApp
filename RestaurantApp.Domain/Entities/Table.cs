@@ -12,6 +12,10 @@ namespace RestaurantApp.Domain.Entities
         public int Capacity { get; set; }
         public TableStatus Status { get; set; }
 
+        public int? ReservationId { get; set; }
+
+        public virtual Reservation Reservation { get; set; }
+
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
     }
 }

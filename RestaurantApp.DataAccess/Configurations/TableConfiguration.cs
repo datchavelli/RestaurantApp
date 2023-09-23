@@ -16,6 +16,11 @@ namespace RestaurantApp.DataAccess.Configurations
                    .WithOne(x => x.Table)
                    .HasForeignKey(x => x.TableId)
                    .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.Reservation)
+                   .WithMany(x => x.Tables)
+                   .HasForeignKey(x => x.ReservationId)
+                   .OnDelete(Microsoft.EntityFrameworkCore.DeleteBehavior.Cascade);
         }
     }
 }

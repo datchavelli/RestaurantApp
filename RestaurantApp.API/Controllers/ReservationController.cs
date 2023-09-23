@@ -31,7 +31,7 @@ namespace RestaurantApp.API.Controllers
         // GET: api/<ReservationController>
         [HttpGet]
         [Authorize]
-        public IActionResult Get([FromBody] ReservationSearch search,
+        public IActionResult Get([FromQuery] ReservationSearch search,
                                  [FromServices] ISearchReservationsQuery query,
                                  [FromServices] IQueryHandler handler)
         {
