@@ -144,6 +144,7 @@ namespace RestaurantApp.API
             services.AddTransient<IUpdateOrderCommand, EfUpdateOrderCommand>();
             services.AddTransient<ICloseTableCommand, EfCloseTableCommand>();
             services.AddTransient<IRemoveOrderCommand, EfRemoveOrderCommand>();
+            services.AddTransient<IGetStatisticsQuery, EfGetStatisticsQuery>();
 
             services.AddTransient<IRegisterUserCommand>(x =>
             {
